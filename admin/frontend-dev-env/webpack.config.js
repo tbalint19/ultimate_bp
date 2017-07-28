@@ -8,7 +8,7 @@ module.exports = {
   },
 
   output: {
-      path: '../../admin/Static/static/Apps/',
+      path: '../Website-Admin/Static/static/apps/',
       filename: "[name].js",
   },
 
