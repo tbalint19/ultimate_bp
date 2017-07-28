@@ -1,3 +1,10 @@
 node_modules
 app_env
 admin_env
+__pycache__
+migrations
+
+
+
+
+db.sqlite3
