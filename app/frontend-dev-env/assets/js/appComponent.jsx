@@ -10,22 +10,32 @@ class AppComponent extends React.Component{
     this._dict = this.manager.loadDict()
   }
   componentWillReceiveProps(){
-    console.log("Component will receive props: " + this.constructor.displayName)
     this._state = this.manager.loadState()
     this._dict = this.manager.loadDict()
-    console.log("The new state of the component (" + this.constructor.displayName + ") is:", this._state)
   }
   report(action){
-    this.report(action)
+    this.manager.dispatch(action)
     console.log("Action reported: " + action.type, action)
   }
-  get(url){
-    this.httpClient.get(url)
-    console.log("GET - " + url)
+  get(req){
+    this.httpClient.get(req, (from, status, req) => this.reportApiResponse(from, status, req))
+    this.reportApiRequest(req)
   }
-  post(url, data){
-    this.httpClient.post(url, data)
-    console.log("POST - " + url, data)
+  post(req){
+    this.httpClient.post(req, (from, status, req) => this.reportApiResponse(from, status, req))
+    this.reportApiRequest(req)
+  }
+
+  initApp(){
+    this.get({ url: '/profile/api/auth'})
+  }
+
+  reportApiRequest(req){
+    this.report({type: "REQUEST_MADE", request: req})
+  }
+
+  reportApiResponse(from, status, data){
+    this.report({type: "RESPONSE_ARRIVED", from: from, status: status, data: JSON.parse(data)})
   }
 
   getApp(app){

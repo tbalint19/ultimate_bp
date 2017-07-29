@@ -1,7 +1,8 @@
 const stateTree = {
 
   state: {
-    app: "init"
+    app: "init",
+    pendingResponses: []
   },
 
   data: {

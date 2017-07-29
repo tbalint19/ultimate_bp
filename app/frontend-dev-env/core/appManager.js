@@ -9,6 +9,11 @@ import {
   appReducer
 } from './reducers/coreReducers'
 
+import {
+  requestReducer,
+  responseReducer
+} from './reducers/apiReducers'
+
 const createManager = (() => {
 
   const initialState = Object.assign({}, stateTree)
@@ -19,6 +24,8 @@ const createManager = (() => {
 
       case "APP_CHANGED": return appReducer(current, action)
       case "LANGUAGE_CHANGED": return languageReducer(current, action)
+      case "REQUEST_MADE": return requestReducer(current, action)
+      case "RESPONSE_ARRIVED": return responseReducer(current, action)
 
       default: return Object.assign({}, current)
 

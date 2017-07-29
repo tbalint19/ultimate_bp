@@ -2,7 +2,7 @@ import React from 'react'
 import AppComponent from 'appComponent'
 
 class Init extends AppComponent {
-  // componentDidMount(){ this.get({ url: '/auth/api/init'}) }
+  componentDidMount(){ this.initApp() }
   render() {
     return (
       <div>

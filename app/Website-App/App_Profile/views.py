@@ -1,4 +1,4 @@
-from App_Profile.requests import SignupRequest, LoginRequest, LogoutRequest
+from App_Profile.requests import SignupRequest, LoginRequest, LogoutRequest, AuthRequest
 from App_Profile.models import Profile
 from _Middleware import API
 
@@ -24,4 +24,9 @@ def login_user(request):
 def logout_user(request):
     from django.contrib.auth import logout
     logout(request)
+    return {'is_successful': True}
+
+
+@API.endpoint(AuthRequest)
+def auth(request):
     return {'is_successful': True}
