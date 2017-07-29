@@ -17,20 +17,20 @@ class AppComponent extends React.Component{
     this.manager.dispatch(action)
     console.log("ACTION", action)
   }
-  get(req){
-    this.httpClient.get(req, (from, status, req) => this.reportApiResponse(from, status, req))
-    this.reportApiRequest(req)
+  get(request){
+    this.httpClient.get(request, (from, status, data) => {
+      this.report({type: "RESPONSE_ARRIVED", from, status, data})
+    })
+    this.report({type: "REQUEST_MADE", request})
   }
-  post(req){
-    this.httpClient.post(req, (from, status, req) => this.reportApiResponse(from, status, req))
-    this.reportApiRequest(req)
+  post(request){
+    this.httpClient.post(request, (from, status, data) => {
+      this.report({type: "RESPONSE_ARRIVED", from, status, data})
+    })
+    this.report({type: "REQUEST_MADE", request})
   }
 
   initApp(){ this.get({ url: '/profile/api/auth'}) }
-
-  reportApiRequest(req){ this.report({type: "REQUEST_MADE", request: req}) }
-
-  reportApiResponse(from, status, data){ this.report({type: "RESPONSE_ARRIVED", from, status, data}) }
 
   getApp(app){ this.report({type: "APP_CHANGED", app: app}) }
 

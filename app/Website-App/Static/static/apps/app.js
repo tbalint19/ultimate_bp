@@ -22425,38 +22425,28 @@
 	    }
 	  }, {
 	    key: 'get',
-	    value: function get(req) {
+	    value: function get(request) {
 	      var _this2 = this;
 
-	      this.httpClient.get(req, function (from, status, req) {
-	        return _this2.reportApiResponse(from, status, req);
+	      this.httpClient.get(request, function (from, status, data) {
+	        _this2.report({ type: "RESPONSE_ARRIVED", from: from, status: status, data: data });
 	      });
-	      this.reportApiRequest(req);
+	      this.report({ type: "REQUEST_MADE", request: request });
 	    }
 	  }, {
 	    key: 'post',
-	    value: function post(req) {
+	    value: function post(request) {
 	      var _this3 = this;
 
-	      this.httpClient.post(req, function (from, status, req) {
-	        return _this3.reportApiResponse(from, status, req);
+	      this.httpClient.post(request, function (from, status, data) {
+	        _this3.report({ type: "RESPONSE_ARRIVED", from: from, status: status, data: data });
 	      });
-	      this.reportApiRequest(req);
+	      this.report({ type: "REQUEST_MADE", request: request });
 	    }
 	  }, {
 	    key: 'initApp',
 	    value: function initApp() {
 	      this.get({ url: '/profile/api/auth' });
-	    }
-	  }, {
-	    key: 'reportApiRequest',
-	    value: function reportApiRequest(req) {
-	      this.report({ type: "REQUEST_MADE", request: req });
-	    }
-	  }, {
-	    key: 'reportApiResponse',
-	    value: function reportApiResponse(from, status, data) {
-	      this.report({ type: "RESPONSE_ARRIVED", from: from, status: status, data: data });
 	    }
 	  }, {
 	    key: 'getApp',
