@@ -22355,7 +22355,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: "navbar-container" },
 	        _react2.default.createElement(
 	          'p',
 	          null,
@@ -22684,7 +22684,8 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: "footer-container" },
+	        _react2.default.createElement('div', { className: "footer-placeholder" }),
 	        _react2.default.createElement(
 	          'p',
 	          null,
@@ -22741,7 +22742,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: "messages-container" },
 	        _react2.default.createElement(
 	          'p',
 	          null,
@@ -24454,6 +24455,95 @@
 
 /***/ },
 /* 225 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(222)();
+	// imports
+	exports.i(__webpack_require__(226), "");
+	exports.i(__webpack_require__(227), "");
+	exports.i(__webpack_require__(228), "");
+	exports.i(__webpack_require__(229), "");
+	exports.i(__webpack_require__(230), "");
+	exports.i(__webpack_require__(231), "");
+
+	// module
+	exports.push([module.id, "@media screen and (min-width: 1100px) {\n  body {\n    background-color: beige;\n    padding: 0;\n    font-family: 'Montserrat', cursive;\n  }\n\n  .app {\n    background-color: white;\n    width: 1100px;\n    margin: 0 auto;\n    padding-top: 60px;\n  }\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 226 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(222)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "@media screen and (min-width: 1100px) {\n  .navbar-container {\n    position: fixed;\n    top: 0;\n    width: 1100px;\n    background-color: #999;\n    color: white;\n    z-index: 2;\n  }\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 227 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(222)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "@media screen and (min-width: 1120px) {\n  .footer-container {\n    position: fixed;\n    bottom: 0;\n    z-index: 2px;\n    width: 1100px;\n    background-color: #999;\n    color: white;\n  }\n\n  .footer-placeholder {\n    background-color: beige;\n    height: 20px;\n  }\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 228 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(222)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "@media screen and (min-width: 1100px) {\n  .messages-container {\n    position: fixed;\n    border: 3px solid black;\n    border-radius: 3px;\n    top: 30px;\n    right: 30px;\n    z-index: 10;\n    background-color: black;\n    color: white;\n  }\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 229 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(222)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "", ""]);
+
+	// exports
+
+
+/***/ },
+/* 230 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(222)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "", ""]);
+
+	// exports
+
+
+/***/ },
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(222)();

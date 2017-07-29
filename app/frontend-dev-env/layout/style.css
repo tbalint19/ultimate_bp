@@ -1,0 +1,21 @@
+@import "./const/navbar/style.css";
+@import "./const/footer/style.css";
+@import "./const/messages/style.css";
+@import "./apps/init/style.css";
+@import "./apps/login/style.css";
+@import "./apps/home/style.css";
+
+@media screen and (min-width: 1100px) {
+  body {
+    background-color: beige;
+    padding: 0;
+    font-family: 'Montserrat', cursive;
+  }
+
+  .app {
+    background-color: white;
+    width: 1100px;
+    margin: 0 auto;
+    padding-top: 60px;
+  }
+}

@@ -4,7 +4,7 @@ import AppComponent from 'appComponent'
 class Navbar extends AppComponent {
   render() {
     return (
-      <div>
+      <div className={"navbar-container"}>
         <p>Navbar</p>
       </div>
     )

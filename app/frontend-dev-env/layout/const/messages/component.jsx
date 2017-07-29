@@ -4,7 +4,7 @@ import AppComponent from 'appComponent'
 class Messages extends AppComponent {
   render() {
     return (
-      <div>
+      <div className={"messages-container"}>
         <p>Messages</p>
       </div>
     )
