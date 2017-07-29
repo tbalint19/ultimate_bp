@@ -4,8 +4,7 @@
   "description": "Boilerplate app",
   "main": "index.js",
   "scripts": {
-    "build": "node_modules/.bin/webpack --config webpack.config.js",
-    "debug": "node_modules/.bin/webpack --config webpack.config.js --watch"
+    "start": "node_modules/.bin/webpack --config webpack.config.js --watch"
   },
   "author": "Toth Balint",
   "license": "ISC",
