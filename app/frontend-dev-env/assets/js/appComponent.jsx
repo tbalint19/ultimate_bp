@@ -15,7 +15,7 @@ class AppComponent extends React.Component{
   }
   report(action){
     this.manager.dispatch(action)
-    console.log("Action reported: " + action.type, action)
+    console.log("ACTION", action)
   }
   get(req){
     this.httpClient.get(req, (from, status, req) => this.reportApiResponse(from, status, req))
@@ -26,25 +26,15 @@ class AppComponent extends React.Component{
     this.reportApiRequest(req)
   }
 
-  initApp(){
-    this.get({ url: '/profile/api/auth'})
-  }
+  initApp(){ this.get({ url: '/profile/api/auth'}) }
 
-  reportApiRequest(req){
-    this.report({type: "REQUEST_MADE", request: req})
-  }
+  reportApiRequest(req){ this.report({type: "REQUEST_MADE", request: req}) }
 
-  reportApiResponse(from, status, data){
-    this.report({type: "RESPONSE_ARRIVED", from: from, status: status, data: JSON.parse(data)})
-  }
+  reportApiResponse(from, status, data){ this.report({type: "RESPONSE_ARRIVED", from, status, data}) }
 
-  getApp(app){
-    this.report({type: "APP_CHANGED", app: app})
-  }
+  getApp(app){ this.report({type: "APP_CHANGED", app: app}) }
 
-  changeLanguage(language){
-    this.report({type: "LANGUAGE_CHANGED", language: language})
-  }
+  changeLanguage(language){ this.report({type: "LANGUAGE_CHANGED", language: language}) }
 
 }
 

@@ -22421,7 +22421,7 @@
 	    key: 'report',
 	    value: function report(action) {
 	      this.manager.dispatch(action);
-	      console.log("Action reported: " + action.type, action);
+	      console.log("ACTION", action);
 	    }
 	  }, {
 	    key: 'get',
@@ -22456,7 +22456,7 @@
 	  }, {
 	    key: 'reportApiResponse',
 	    value: function reportApiResponse(from, status, data) {
-	      this.report({ type: "RESPONSE_ARRIVED", from: from, status: status, data: JSON.parse(data) });
+	      this.report({ type: "RESPONSE_ARRIVED", from: from, status: status, data: data });
 	    }
 	  }, {
 	    key: 'getApp',
@@ -22496,7 +22496,7 @@
 	    request.open("GET", urlPrefix + req.url, true);
 	    request.onreadystatechange = function () {
 	      if (this.readyState == 4) {
-	        callBack(req, this.status, this.responseText);
+	        callBack(req, this.status, JSON.parse(this.responseText));
 	      }
 	    };
 	    request.send();
@@ -22508,7 +22508,7 @@
 	    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 	    request.onreadystatechange = function () {
 	      if (this.readyState == 4) {
-	        callBack(req, this.status, this.responseText);
+	        callBack(req, this.status, JSON.parse(this.responseText));
 	      }
 	    };
 	    request.send(JSON.stringify(req.data));
