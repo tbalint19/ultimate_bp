@@ -18,14 +18,14 @@ class AppComponent extends React.Component{
     console.log("ACTION", action)
   }
   get(request){
-    this.httpClient.get(request, (from, status, data) => {
-      this.report({type: "RESPONSE_ARRIVED", from, status, data})
+    this.httpClient.get(request, (request, response) => {
+      this.report({type: "RESPONSE_ARRIVED", request, response})
     })
     this.report({type: "REQUEST_MADE", request})
   }
   post(request){
-    this.httpClient.post(request, (from, status, data) => {
-      this.report({type: "RESPONSE_ARRIVED", from, status, data})
+    this.httpClient.post(request, (request, response) => {
+      this.report({type: "RESPONSE_ARRIVED", request, response})
     })
     this.report({type: "REQUEST_MADE", request})
   }

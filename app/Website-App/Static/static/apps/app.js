@@ -22428,8 +22428,8 @@
 	    value: function get(request) {
 	      var _this2 = this;
 
-	      this.httpClient.get(request, function (from, status, data) {
-	        _this2.report({ type: "RESPONSE_ARRIVED", from: from, status: status, data: data });
+	      this.httpClient.get(request, function (request, response) {
+	        _this2.report({ type: "RESPONSE_ARRIVED", request: request, response: response });
 	      });
 	      this.report({ type: "REQUEST_MADE", request: request });
 	    }
@@ -22438,8 +22438,8 @@
 	    value: function post(request) {
 	      var _this3 = this;
 
-	      this.httpClient.post(request, function (from, status, data) {
-	        _this3.report({ type: "RESPONSE_ARRIVED", from: from, status: status, data: data });
+	      this.httpClient.post(request, function (request, response) {
+	        _this3.report({ type: "RESPONSE_ARRIVED", request: request, response: response });
 	      });
 	      this.report({ type: "REQUEST_MADE", request: request });
 	    }
@@ -22486,7 +22486,8 @@
 	    request.open("GET", urlPrefix + req.url, true);
 	    request.onreadystatechange = function () {
 	      if (this.readyState == 4) {
-	        callBack(req, this.status, JSON.parse(this.responseText));
+	        var res = { status: this.status, data: JSON.parse(this.responseText) };
+	        callBack(req, res);
 	      }
 	    };
 	    request.send();
@@ -22498,7 +22499,8 @@
 	    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 	    request.onreadystatechange = function () {
 	      if (this.readyState == 4) {
-	        callBack(req, this.status, JSON.parse(this.responseText));
+	        var res = { status: this.status, data: JSON.parse(this.responseText) };
+	        callBack(req, res);
 	      }
 	    };
 	    request.send(JSON.stringify(req.data));
@@ -23976,9 +23978,9 @@
 	var responseReducer = exports.responseReducer = function responseReducer(current, action) {
 	  var nextState = Object.assign({}, current);
 	  nextState.state.pendingResponses = nextState.state.pendingResponses.filter(function (req) {
-	    return req != action.from;
+	    return req != action.request;
 	  });
-	  switch (action.from.url) {
+	  switch (action.request.url) {
 	    case "/profile/api/auth":
 	      return initializer(current, action);
 	    default:
@@ -23989,7 +23991,7 @@
 	var initializer = function initializer(current, action) {
 	  var nextState = Object.assign({}, current);
 	  updateDict(current);
-	  nextState.state.app = action.status == 200 ? "home" : "login";
+	  nextState.state.app = action.response.status == 200 ? "home" : "login";
 	  return nextState;
 	};
 

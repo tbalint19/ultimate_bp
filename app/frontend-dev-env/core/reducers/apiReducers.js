@@ -8,8 +8,8 @@ export const requestReducer = (current, action) => {
 
 export const responseReducer = (current, action) => {
   let nextState = Object.assign({}, current)
-  nextState.state.pendingResponses = nextState.state.pendingResponses.filter((req) => req != action.from)
-  switch (action.from.url){
+  nextState.state.pendingResponses = nextState.state.pendingResponses.filter((req) => req != action.request)
+  switch (action.request.url){
     case "/profile/api/auth":
       return initializer(current, action)
     default:
@@ -20,7 +20,7 @@ export const responseReducer = (current, action) => {
 const initializer = (current, action) => {
   let nextState = Object.assign({}, current)
   updateDict(current)
-  nextState.state.app = action.status == 200 ? "home" : "login"
+  nextState.state.app = action.response.status == 200 ? "home" : "login"
   return nextState
 }
 

@@ -10,7 +10,8 @@ export const HttpClient = () => {
     request.open("GET", urlPrefix + req.url, true)
     request.onreadystatechange = function() {
       if (this.readyState == 4) {
-        callBack(req, this.status, JSON.parse(this.responseText))
+        let res = {status: this.status, data: JSON.parse(this.responseText)}
+        callBack(req, res)
       }
     }
     request.send()
@@ -22,7 +23,8 @@ export const HttpClient = () => {
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
     request.onreadystatechange = function() {
       if (this.readyState == 4) {
-        callBack(req, this.status, JSON.parse(this.responseText))
+        let res = {status: this.status, data: JSON.parse(this.responseText)}
+        callBack(req, res)
       }
     }
     request.send(JSON.stringify(req.data))
