@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'App_Profile.AppProfileConfig',
     'Static.StaticConfig',
 ]
 
@@ -62,10 +63,17 @@ WSGI_APPLICATION = 'ProjectConfig.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
+import json
+with open('config.json') as json_data:
+    config = json.load(json_data)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config['name'],
+        'USER': config['user'],
+        'PASSWORD': config['password'],
+        'HOST': config['host'],
+        'PORT': config['port'],
     }
 }
 

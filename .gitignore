@@ -4,6 +4,7 @@ admin_env
 __pycache__
 migrations
 app.js
+config.json
 
 
 
