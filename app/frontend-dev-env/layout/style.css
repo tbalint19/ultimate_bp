@@ -5,7 +5,7 @@
 @import "./apps/signup/style.css";
 @import "./apps/home/style.css";
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1150px) {
   body {
     background-color: beige;
     padding: 0;
@@ -17,6 +17,6 @@
     width: 1100px;
     margin: 0 auto;
     padding-top: 60px;
-    min-height: 1500px;
+    min-height: 500px;
   }
 }

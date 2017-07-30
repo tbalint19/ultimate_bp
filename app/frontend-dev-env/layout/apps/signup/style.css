@@ -1,0 +1,14 @@
+.signup-component-container {
+  display: flex;
+}
+
+@media screen and (min-width: 1150px) {
+  .intro-container {
+    width: 700px;
+  }
+
+  .signup-container {
+    width: 400px;
+    padding: 20px;
+  }
+}
