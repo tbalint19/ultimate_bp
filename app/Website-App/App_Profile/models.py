@@ -6,8 +6,7 @@ class ProfileManager(models.Manager):
 
     def create_profile(self, username, email, password):
         user = User.objects.create_user(username=username, email=email, password=password)
-        profile = Profile(user_obj=user).set_confirmation_code()
-        profile.save()
+        Profile(user_obj=user).save()
         return user
 
     def check_if_possible(self, username, email):

@@ -6,8 +6,13 @@ import {
 } from './reducers/configReducers'
 
 import {
-  appReducer
+  appReducer,
+  deleteMessageReducer
 } from './reducers/coreReducers'
+
+import {
+  inputReducer
+} from './reducers/inputReducers'
 
 import {
   requestReducer,
@@ -26,6 +31,8 @@ const createManager = (() => {
       case "LANGUAGE_CHANGED": return languageReducer(current, action)
       case "REQUEST_MADE": return requestReducer(current, action)
       case "RESPONSE_ARRIVED": return responseReducer(current, action)
+      case "INPUT_FIELD_CHANGED": return inputReducer(current, action)
+      case "MESSAGE_DELETED": return deleteMessageReducer(current, action)
 
       default: return Object.assign({}, current)
 

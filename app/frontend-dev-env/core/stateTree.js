@@ -2,7 +2,14 @@ const stateTree = {
 
   state: {
     app: "init",
-    pendingResponses: []
+    pendingResponses: [],
+    messages: [],
+    signup: {
+      username: "",
+      email: "",
+      password: "",
+      passwordAgain: ""
+    }
   },
 
   data: {

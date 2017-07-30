@@ -21,6 +21,7 @@ export const HttpClient = () => {
     const request = new XMLHttpRequest()
     request.open("POST", urlPrefix + req.url, true)
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
+    request.setRequestHeader("X-CSRFToken", csrftoken)
     request.onreadystatechange = function() {
       if (this.readyState == 4) {
         let res = {status: this.status, data: JSON.parse(this.responseText)}

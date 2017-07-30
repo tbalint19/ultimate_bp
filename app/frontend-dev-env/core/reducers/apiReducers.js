@@ -10,17 +10,33 @@ export const responseReducer = (current, action) => {
   let nextState = Object.assign({}, current)
   nextState.state.pendingResponses = nextState.state.pendingResponses.filter((req) => req != action.request)
   switch (action.request.url){
-    case "/profile/api/auth":
-      return initializer(current, action)
-    default:
-      return nextState
+    case "/profile/api/auth": return initializer(nextState, action)
+    case "/profile/api/signup": return signupResponseReducer(nextState, action)
+    default: return nextState
   }
 }
 
 const initializer = (current, action) => {
   let nextState = Object.assign({}, current)
   updateDict(current)
-  nextState.state.app = action.response.status == 200 ? "home" : "login"
+  nextState.state.app = action.response.status == 200 ? "home" : "signup"
+  return nextState
+}
+
+const signupResponseReducer = (current, action) => {
+  let nextState = Object.assign({}, current)
+  if (action.response.data.errors.length < 1){
+    let message = {title: "Welcome!", message: "Successful registration!", type: "success-message"}
+    nextState.state.messages.push(message)
+  } else {
+    let errors = action.response.data.errors
+    let msg = (errors.includes("username") && errors.includes("email")) ?
+      "Occupied username and email" :
+      (errors.includes("username") || !errors.includes("email")) ?
+      "Occupied username" : "Occupied email"
+    let message = {title: "Error!", message: msg, type: "error-message"}
+    nextState.state.messages.push(message)
+  }
   return nextState
 }
 

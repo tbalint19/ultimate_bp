@@ -8,7 +8,7 @@ import Messages from './const/messages/component'
 
 import Init from './apps/init/component'
 import Home from './apps/home/component'
-import Login from './apps/login/component'
+import Signup from './apps/signup/component'
 
 class Layout extends React.Component{
   render(){
@@ -21,7 +21,7 @@ class Layout extends React.Component{
         <NavBar appManager={appManager}/>
         {/* Apps */}
         {state.app == "init" && <Init appManager={appManager}/>}
-        {state.app == "login" && <Login appManager={appManager}/>}
+        {state.app == "signup" && <Signup appManager={appManager}/>}
         {state.app == "home" && <Home appManager={appManager}/>}
 
         <Footer appManager={appManager}/>
