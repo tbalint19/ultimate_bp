@@ -7,7 +7,7 @@ class Messages extends AppComponent {
     return (
       <div className={"messages-container"}>
         {messages.slice(0).reverse().map((message, index) => (
-          <Message message={message} appManager={this.manager} key={index}/>
+          <Message message={message} appManager={this.manager} key={message.id}/>
         ))}
       </div>
     )
@@ -18,7 +18,7 @@ export default Messages
 
 class Message extends AppComponent {
   componentDidMount(){
-    setTimeout(()=>{this.deleteMessage(this.props.message)}, 3000)
+    setTimeout(()=>{this.deleteMessage(this.props.message)}, 5000)
   }
   render(){
     return(
