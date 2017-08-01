@@ -5,35 +5,47 @@
     right: 30px;
     z-index: 10;
     background-color: transparent;
+    font-size: 12px;
+    font-weight: bold;
   }
 
   .success-message {
-    padding: 7px;
-    margin: 10px;
+    padding: 15px;
+    margin: 5px;
     background-color: #5cb85c;
     color: white;
-    border: 1px solid #5cb85c;
+    border: 1px solid green;
     border-radius: 3px;
     box-shadow: 0 0 10px #999;
     animation: messageDisappear 5s ease forwards;
+    width: 180px;
   }
 
   .error-message {
-    padding: 7px;
-    margin: 10px;
+    padding: 15px;
+    margin: 5px;
     background-color: #d9534f;
     color: white;
-    border: 1px solid #d9534f;
+    border: 1px solid red;
     border-radius: 3px;
     box-shadow: 0 0 10px #999;
     animation: messageDisappear 5s ease forwards;
+    width: 180px;
   }
 
 }
 
+.message-title {
+  text-align: center;
+}
+
+.message-content {
+  text-align: center;
+}
+
 @keyframes messageDisappear {
-  0% {opacity: 1; transform: translateX(50px)}
-  5% {opacity: 1; transform: translateX(0)}
-  90% {opacity: 1;}
+  0% {opacity: 0.8; transform: translateX(50px)}
+  5% {opacity: 0.8; transform: translateX(0)}
+  90% {opacity: 0.8;}
   100% {opacity: 0;}
 }

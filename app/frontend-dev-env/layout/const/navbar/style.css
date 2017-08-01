@@ -7,5 +7,17 @@
     background-color: #5bc0de;
     color: white;
     z-index: 2;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navbar-logo-container {
+    font-size: 18px;
+    padding: 5px;
+    margin: 7px;
+  }
+
+  .navbar-controller-container {
+    padding-right: 30px;
   }
 }

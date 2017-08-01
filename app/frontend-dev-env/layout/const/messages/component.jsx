@@ -23,8 +23,8 @@ class Message extends AppComponent {
   render(){
     return(
       <div className={this.props.message.type}>
-        <p>{this.props.message.title}</p>
-        <p>{this.props.message.message}</p>
+        <p className={"message-title"}>{this.props.message.title}</p>
+        <p className={"message-content"}>{this.props.message.message}</p>
       </div>
     )
   }

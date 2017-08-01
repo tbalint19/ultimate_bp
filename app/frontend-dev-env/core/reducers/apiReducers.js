@@ -26,8 +26,9 @@ const initializer = (current, action) => {
 const signupResponseReducer = (current, action) => {
   let nextState = Object.assign({}, current)
   let id = Math.random()
-  if (action.response.data.errors.length < 1){
-    let message = {title: "Welcome!", message: "Successful registration!", type: "success-message", id}
+  let errorHappened = action.response.data.errors.length > 0
+  if (!errorHappened){
+    let message = {title: "Congratulations!", message: "Successful registration, you can log in now", type: "success-message", id}
     nextState.state.messages.push(message)
   } else {
     let errors = action.response.data.errors
@@ -35,9 +36,13 @@ const signupResponseReducer = (current, action) => {
       "Occupied username and email" :
       (errors.includes("username") || !errors.includes("email")) ?
       "Occupied username" : "Occupied email"
-    let message = {title: "Error!", message: msg, type: "error-message", id}
+    let message = {title: "Ooops!", message: msg, type: "error-message", id}
     nextState.state.messages.push(message)
   }
+  nextState.state.signup.username = errorHappened ? nextState.state.signup.username : ""
+  nextState.state.signup.email = errorHappened ? nextState.state.signup.email : ""
+  nextState.state.signup.password = errorHappened ? nextState.state.signup.password : ""
+  nextState.state.signup.passwordAgain = errorHappened ? nextState.state.signup.passwordAgain : ""
   return nextState
 }
 

@@ -34,6 +34,8 @@ class AppComponent extends React.Component{
 
   getApp(app){ this.report({type: "APP_CHANGED", app: app}) }
 
+  openPage(page) { window.open(page) }
+
   changeLanguage(language){ this.report({type: "LANGUAGE_CHANGED", language: language}) }
 
   changeInputField(path, event){ this.report({type: "INPUT_FIELD_CHANGED", path, value: event.target.value}) }
