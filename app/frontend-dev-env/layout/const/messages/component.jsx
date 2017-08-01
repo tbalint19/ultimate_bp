@@ -20,6 +20,11 @@ class Message extends AppComponent {
   componentDidMount(){
     setTimeout(()=>{this.deleteMessage(this.props.message)}, 5000)
   }
+
+  deleteMessage(message){
+    this.report({type: "MESSAGE_DELETED", message})
+  }
+
   render(){
     return(
       <div className={this.props.message.type}>

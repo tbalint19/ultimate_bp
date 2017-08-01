@@ -36,13 +36,7 @@ class AppComponent extends React.Component{
 
   openPage(page) { window.open(page) }
 
-  changeLanguage(language){ this.report({type: "LANGUAGE_CHANGED", language: language}) }
-
   changeInputField(path, event){ this.report({type: "INPUT_FIELD_CHANGED", path, value: event.target.value}) }
-
-  signup(username, email, password){ this.post({url: "/profile/api/signup", data: {username, email, password}}) }
-
-  deleteMessage(message){ this.report({type: "MESSAGE_DELETED", message}) }
 }
 
 export default AppComponent

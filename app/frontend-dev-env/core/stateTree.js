@@ -9,6 +9,10 @@ const stateTree = {
       email: "",
       password: "",
       passwordAgain: ""
+    },
+    login: {
+      credential: "",
+      password: ""
     }
   },
 

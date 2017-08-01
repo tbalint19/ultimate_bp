@@ -2,6 +2,11 @@ import React from 'react'
 import AppComponent from 'appComponent'
 
 class Signup extends AppComponent {
+
+  signup(username, email, password){
+    this.post({url: "/profile/api/signup", data: {username, email, password}})
+  }
+
   render() {
     let username = this._state.signup.username
     let email = this._state.signup.email
@@ -22,7 +27,7 @@ class Signup extends AppComponent {
         <div className={"signup-container"}>
           <div className={"card"}>
             <div className={"signup-title-container"}>
-              <p className={"signup-title"}>Create your account in a few seconds</p>
+              <p className={"signup-title"}>Create your account in seconds</p>
             </div>
             <div className={"signup-input-container"}>
               <input
