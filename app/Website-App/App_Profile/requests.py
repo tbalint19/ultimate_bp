@@ -52,3 +52,27 @@ class AuthRequest:
             return request
         except:
             return None
+
+class UsernameCheckRequest:
+
+    auth_status = "public"
+    request_method = "GET"
+
+    def get_from_request(self, request):
+        try:
+            request.username = json.loads(request.body.decode('utf-8'))["username"]
+            return request
+        except:
+            return None
+
+class EmailCheckRequest:
+
+    auth_status = "public"
+    request_method = "GET"
+
+    def get_from_request(self, request):
+        try:
+            request.email = json.loads(request.body.decode('utf-8'))["email"]
+            return request
+        except:
+            return None

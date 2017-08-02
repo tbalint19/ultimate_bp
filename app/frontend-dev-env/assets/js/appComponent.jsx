@@ -30,8 +30,6 @@ class AppComponent extends React.Component{
     this.report({type: "REQUEST_MADE", request})
   }
 
-  initApp(){ this.get({ url: '/profile/api/auth'}) }
-
   getApp(app){ this.report({type: "APP_CHANGED", app: app}) }
 
   openPage(page) { window.open(page) }

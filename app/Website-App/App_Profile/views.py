@@ -1,5 +1,5 @@
-from App_Profile.requests import SignupRequest, LoginRequest, LogoutRequest, AuthRequest
 from App_Profile.models import Profile
+from App_Profile.requests import *
 from _Middleware import API
 
 
@@ -30,3 +30,13 @@ def logout_user(request):
 @API.endpoint(AuthRequest)
 def auth(request):
     return {'is_successful': True}
+
+
+@API.endpoint(UsernameCheckRequest)
+def check_username(request):
+    return {'username_exists': Profile.objects.filter(user_obj__username=request.username).exists()}
+
+
+@API.endpoint(EmailCheckRequest)
+def check_email(request):
+    return {'email_exists': Profile.objects.filter(user_obj__email=request.email).exists()}

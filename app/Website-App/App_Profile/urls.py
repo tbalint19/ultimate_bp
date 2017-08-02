@@ -9,4 +9,7 @@ urlpatterns = [
 
     url(r'^auth$', views.auth, name='auth'),
 
+    url(r'^checkusername$', views.check_username, name='check_username'),
+    url(r'^checkemail$', views.check_email, name='check_email'),
+
 ]

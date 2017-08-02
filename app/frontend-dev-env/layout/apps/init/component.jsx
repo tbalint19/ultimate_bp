@@ -2,7 +2,12 @@ import React from 'react'
 import AppComponent from 'appComponent'
 
 class Init extends AppComponent {
-  componentDidMount(){ this.initApp() }
+  initApp(){
+    this.get({ url: '/profile/auth'})
+  }
+  componentDidMount(){
+    this.initApp()
+  }
   render() {
     return (
       <div>

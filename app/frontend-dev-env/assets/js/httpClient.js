@@ -2,7 +2,7 @@ const Cookies = require('./cookies')
 
 export const HttpClient = () => {
 
-  const urlPrefix = "http://localhost:8000"
+  const urlPrefix = "http://localhost:8000/api"
   const csrftoken = Cookies.get('csrftoken')
 
   const get = (req, callBack) => {

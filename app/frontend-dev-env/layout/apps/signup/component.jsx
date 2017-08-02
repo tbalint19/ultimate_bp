@@ -4,11 +4,11 @@ import AppComponent from 'appComponent'
 class Signup extends AppComponent {
 
   signup(username, email, password){
-    this.post({url: "/profile/api/signup", data: {username, email, password}})
+    this.post({url: "/profile/signup", data: {username, email, password}})
   }
 
   render() {
-    let pendingSignup = this._state.pendingResponses.find(entry => entry.url == "/profile/api/signup")
+    let pendingSignup = this._state.pendingResponses.find(entry => entry.url == "/profile/signup")
     let username = this._state.signup.username
     let email = this._state.signup.email
     let password = this._state.signup.password
