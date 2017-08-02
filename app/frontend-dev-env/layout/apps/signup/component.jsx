@@ -8,6 +8,7 @@ class Signup extends AppComponent {
   }
 
   render() {
+    let pendingSignup = this._state.pendingResponses.find(entry => entry.url == "/profile/api/signup")
     let username = this._state.signup.username
     let email = this._state.signup.email
     let password = this._state.signup.password
@@ -25,13 +26,14 @@ class Signup extends AppComponent {
           <p>&gt;&nbsp;Profile upgrade with PayPal in readME</p>
         </div>
         <div className={"signup-container"}>
-          <div className={"card"}>
+          <div className={"card" + (pendingSignup ? " in-transition" : "")}>
             <div className={"signup-title-container"}>
               <p className={"signup-title"}>Create your account in seconds</p>
             </div>
             <div className={"signup-input-container"}>
               <input
                 className={"default-input signup-input"}
+                disabled={pendingSignup}
                 value={username}
                 onChange={(event)=>this.changeInputField("signup.username", event)}
                 placeholder={"Username"}/>
@@ -40,6 +42,7 @@ class Signup extends AppComponent {
             <div className={"signup-input-container"}>
               <input
                 className={"default-input signup-input"}
+                disabled={pendingSignup}
                 value={email}
                 onChange={(event)=>this.changeInputField("signup.email", event)}
                 placeholder={"Email"}/>
@@ -48,6 +51,7 @@ class Signup extends AppComponent {
             <div className={"signup-input-container"}>
               <input
                 className={"default-input signup-input"}
+                disabled={pendingSignup}
                 value={password}
                 type={"password"}
                 onChange={(event)=>this.changeInputField("signup.password", event)}
@@ -57,6 +61,7 @@ class Signup extends AppComponent {
             <div className={"signup-input-container"}>
               <input
                 className={"default-input signup-input"}
+                disabled={pendingSignup}
                 value={passwordAgain}
                 type={"password"}
                 onChange={(event)=>this.changeInputField("signup.passwordAgain", event)}
@@ -69,7 +74,8 @@ class Signup extends AppComponent {
                 disabled={
                   username.length < 6 ||
                   email.lenght< 6 || !email.includes("@") || !email.includes(".") ||
-                  password.length < 6 || password != passwordAgain
+                  password.length < 6 || password != passwordAgain ||
+                  pendingSignup
                 }
                 onClick={()=>this.signup(username, email, password)}>
                 Signup&nbsp;&gt;&gt;
