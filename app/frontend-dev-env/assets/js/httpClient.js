@@ -7,7 +7,13 @@ export const HttpClient = () => {
 
   const get = (req, callBack) => {
     const request = new XMLHttpRequest()
-    request.open("GET", urlPrefix + req.url, true)
+    let url = req.url
+    if (req.params) {
+      Object.keys(req.params).forEach((key, index) => {
+        url = url + (index == 0 ? "?" : "&") + key + "=" + req.params[key]
+      })
+    }
+    request.open("GET", urlPrefix + url, true)
     request.onreadystatechange = function() {
       if (this.readyState == 4) {
         let res = {status: this.status, data: JSON.parse(this.responseText)}

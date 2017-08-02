@@ -8,7 +8,11 @@ const stateTree = {
       username: "",
       email: "",
       password: "",
-      passwordAgain: ""
+      passwordAgain: "",
+      shouldCheckUsername: false,
+      shouldCheckEmail: false,
+      usernameError: false,
+      emailError: false
     },
     login: {
       credential: "",

@@ -60,7 +60,7 @@ class UsernameCheckRequest:
 
     def get_from_request(self, request):
         try:
-            request.username = json.loads(request.body.decode('utf-8'))["username"]
+            request.username = request.GET.get("username")
             return request
         except:
             return None
@@ -72,7 +72,7 @@ class EmailCheckRequest:
 
     def get_from_request(self, request):
         try:
-            request.email = json.loads(request.body.decode('utf-8'))["email"]
+            request.email = request.GET.get("email")
             return request
         except:
             return None
