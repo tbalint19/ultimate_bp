@@ -8,7 +8,7 @@ import Messages from './const/messages/component'
 
 import Init from './apps/init/component'
 import Home from './apps/home/component'
-import Signup from './apps/signup/component'
+import Signup from './apps/signup/appRoot'
 
 class Layout extends React.Component{
   render(){

@@ -43,7 +43,18 @@
     text-align: right;
     height: 9px;
     font-size: 9px;
+  }
+
+  .signup-input-info {
+    color: #555;
+  }
+
+  .signup-input-error {
     color: #d9534f;
+  }
+
+  .signup-input-success {
+    color: #5cb85c;
   }
 
   .signup-button-container {
