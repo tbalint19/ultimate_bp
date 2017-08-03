@@ -94,7 +94,7 @@ class Signup extends AppComponent {
               <PasswordInputInfo long={this.passwordIsLong()} valid={this.passwordIsValid()}/>
             </div>
             <div className={"signup-input-container"}>
-              <PasswordAgainInput pending={this.pendingSignup} password={this.signup.passwordAgain} placeholder={"Password again"}
+              <PasswordAgainInput pending={this.pendingSignup} passwordAgain={this.signup.passwordAgain} placeholder={"Password again"}
                 action={(event)=>this.changeInputField("signup.passwordAgain", event)}/>
               <PasswordAgainInputInfo exists={this.passwordAgainExists()} matches={this.passWordMatches()}/>
             </div>
