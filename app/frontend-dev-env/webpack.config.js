@@ -4,6 +4,7 @@ module.exports = {
   context: __dirname,
 
   entry: {
+    vendors: [ "webpack-material-design-icons" ],
      app: './main.jsx'
   },
 
@@ -25,6 +26,10 @@ module.exports = {
       {
         test: /\.css$/,
         loader: "style-loader!css-loader"
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg|eot|woff|ttf|svg|woff2)$/,
+        loader: "file-loader"
       }
     ],
   },

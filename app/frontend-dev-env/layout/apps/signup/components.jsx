@@ -33,7 +33,7 @@ export const UsernameInputInfo = (props) => (
     {!props.long ?
       <Info info={"Min. 6 characters"} severity={"info"}/> : !props.valid ?
       <Info info={"Only letters and numbers"} severity={"info"}/> : props.pending ?
-      <Info info={"Checking..."} severity={"info"}/> : props.error ?
+      <Info info={"Checking..."} severity={"loading"}/> : props.error ?
       <Info info={"Already occupied"} severity={"error"}/> :
       <Info info={"Available"} severity={"success"}/>
     }
@@ -53,7 +53,7 @@ export const EmailInputInfo = (props) => (
   <div className={"input-help"}>
     {!props.valid ?
       <Info info={"Enter a valid email address"} severity={"info"}/> : props.pending ?
-      <Info info={"Checking..."} severity={"info"}/> : props.error ?
+      <Info info={"Checking..."} severity={"loading"}/> : props.error ?
       <Info info={"Already occupied"} severity={"error"}/> :
       <Info info={"Available"} severity={"success"}/>
     }
@@ -112,5 +112,11 @@ export const SignupButton = (props) => (
 const Info = (props) => (
   <span className={"signup-input-" + props.severity}>
     {props.info}
+    <i className={"material-icons md-9 align-down-right" + (props.severity == "loading" ? " loading-signup-circle" : "")}>
+      {props.severity == "info" && "error_outline"}
+      {props.severity == "loading" && "data_usage"}
+      {props.severity == "error" && "error"}
+      {props.severity == "success" && "check_box"}
+    </i>
   </span>
 )

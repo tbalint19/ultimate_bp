@@ -5,6 +5,11 @@ __pycache__
 migrations
 config.json
 app.js
+vendors.js
+*.woff
+*.woff2
+*.ttf
+*.eot
 
 
 db.sqlite3

@@ -49,12 +49,26 @@
     color: #555;
   }
 
+  .signup-input-loading {
+    color: #555;
+  }
+
   .signup-input-error {
     color: #d9534f;
   }
 
   .signup-input-success {
     color: #5cb85c;
+  }
+
+  .loading-signup-circle {
+    animation: signupLoadnigCircle 100s forwards;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes signupLoadnigCircle {
+    0% {transform: rotateZ(0deg);}
+    100% {transform: rotateZ(36000deg);}
   }
 
   .signup-button-container {

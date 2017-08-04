@@ -1,3 +1,8 @@
 .in-transition {
-  opacity: 0.4;
+  animation: fadeToTransition 0.5s ease-in forwards;
+}
+
+@keyframes fadeToTransition {
+  0% {opacity: 1;}
+  100% {opacity: 0.2;}
 }

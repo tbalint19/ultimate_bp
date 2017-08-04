@@ -14,3 +14,7 @@
   outline:0;
   box-shadow: 0 0 7px #5bc0de;
 }
+
+.default-input:disabled {
+  background-color: white;
+}
