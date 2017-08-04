@@ -13,7 +13,7 @@ def signup_user(request):
 
 @API.endpoint(LoginRequest)
 def login_user(request):
-    user = Profile.objects.authenticate_user(request, request.identification, request.password)
+    user = Profile.objects.authenticate_user(request, request.credential, request.password)
     if user is not None:
         from django.contrib.auth import login
         login(request, user)

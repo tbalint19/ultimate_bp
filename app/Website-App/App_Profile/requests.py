@@ -23,7 +23,7 @@ class LoginRequest:
 
     def get_from_request(self, request):
         try:
-            request.identification = json.loads(request.body.decode('utf-8'))["identification"]
+            request.credential = json.loads(request.body.decode('utf-8'))["credential"]
             request.password = json.loads(request.body.decode('utf-8'))["password"]
             return request
         except:
@@ -33,7 +33,7 @@ class LoginRequest:
 class LogoutRequest:
 
     auth_status = "user"
-    request_method = "POST"
+    request_method = "GET"
 
     def get_from_request(self, request):
         try:

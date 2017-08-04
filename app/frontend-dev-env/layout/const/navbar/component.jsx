@@ -2,16 +2,30 @@ import React from 'react'
 import AppComponent from 'appComponent'
 
 class Navbar extends AppComponent {
+  requestLogin(credential, password){
+    this.post({url: "/profile/login", data: {
+      credential: credential,
+      password: password
+    }})
+  }
+
+  requestLogout(){
+    this.get({url: "/profile/logout" })
+  }
+
   render() {
     let credential = this._state.login.credential
     let password = this._state.login.password
+    let pendingLogin = this._state.pendingResponses.find(entry => entry.url == "/profile/login")
+    let pendingLogout = this._state.pendingResponses.find(entry => entry.url == "/profile/logout")
+    let currentApp = this._state.app
     return (
       <div className={"navbar-container"}>
         <div className={"navbar-logo-container"}>
           <i className="material-icons md-14 icon-align-left">build</i>
           <span className={"logo-text"}>Boilerplate app</span>
         </div>
-        <div className={"navbar-controller-container"}>
+        {currentApp == "signup" && <div className={"navbar-login-container"}>
           <input
             className={"default-input"}
             placeholder={"Username"}
@@ -20,12 +34,20 @@ class Navbar extends AppComponent {
           <input
             className={"default-input"}
             placeholder={"Password"}
+            type={"password"}
             onChange={(event)=>this.changeInputField("login.password", event)}
             value={password}/>
-          <button className={"default-button"}>
+          <button className={"default-button"} onClick={()=>this.requestLogin(credential, password)}
+            disabled={pendingLogin || credential.length < 6 || password.length < 6}>
               Login&nbsp;&gt;&gt;
           </button>
-        </div>
+        </div>}
+        {(currentApp != "signup" && currentApp != "init") && <div className={"navbar-controller-container"}>
+          <button className={"default-button"} onClick={()=>this.requestLogout()}
+            disabled={pendingLogout}>
+              &lt;&lt;&nbsp;Logout
+          </button>
+        </div>}
       </div>
     )
   }

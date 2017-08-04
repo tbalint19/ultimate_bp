@@ -5,7 +5,7 @@ class Home extends AppComponent {
   render() {
     return (
       <div>
-        <p>Home</p>
+        <p>Welcome!</p>
       </div>
     )
   }

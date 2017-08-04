@@ -15,6 +15,8 @@ export const responseReducer = (current, action) => {
     case "/profile/signup": return signupResponseReducer(nextState, action)
     case "/profile/checkusername": return usernameCheckResponseReducer(nextState, action)
     case "/profile/checkemail": return emailCheckResponseReducer(nextState, action)
+    case "/profile/login": return loginResponseReducer(nextState, action)
+    case "/profile/logout": return logoutResponseReducer(nextState, action)
     default: return nextState
   }
 }
@@ -82,10 +84,46 @@ const signupResponseReducer = (current, action) => {
     let message = {title: "Ooops!", message: msg, type: "error-message", id}
     nextState.state.messages.push(message)
   }
+  nextState.state.login.credential = errorHappened ? "" : nextState.state.signup.username
+  nextState.state.login.password = errorHappened ? "" : nextState.state.signup.password
   nextState.state.signup.username = errorHappened ? nextState.state.signup.username : ""
   nextState.state.signup.email = errorHappened ? nextState.state.signup.email : ""
   nextState.state.signup.password = errorHappened ? nextState.state.signup.password : ""
   nextState.state.signup.passwordAgain = errorHappened ? nextState.state.signup.passwordAgain : ""
+  return nextState
+}
+
+const loginResponseReducer = (current, action) => {
+  let nextState = Object.assign({}, current)
+  let isSuccessful = action.response.data.is_successful
+  if (!isSuccessful) {
+    let id = Math.random()
+    let message = {title: "Invalid credentials!", message: "Wrong username or password", type: "error-message", id}
+    nextState.state.messages.push(message)
+  } else {
+    nextState.state.login.credential = ""
+    nextState.state.login.password = ""
+    let id = Math.random()
+    let message = {title: "Welcome!", message: "You are now logged in", type: "success-message", id}
+    nextState.state.messages.push(message)
+    nextState.state.app = "home"
+  }
+  return nextState
+}
+
+const logoutResponseReducer = (current, action) => {
+  let nextState = Object.assign({}, current)
+  let isSuccessful = action.response.data.is_successful
+  if (!isSuccessful) {
+    let id = Math.random()
+    let message = {title: "Ooops!", message: "Something went wrong", type: "error-message", id}
+    nextState.state.messages.push(message)
+  } else {
+    let id = Math.random()
+    let message = {title: "Goodbye!", message: "You are now logged out", type: "success-message", id}
+    nextState.state.messages.push(message)
+    nextState.state.app = "signup"
+  }
   return nextState
 }
 

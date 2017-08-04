@@ -17,6 +17,10 @@
     margin: 7px;
   }
 
+  .navbar-login-container {
+    padding-right: 30px;
+  }
+
   .navbar-controller-container {
     padding-right: 30px;
   }
