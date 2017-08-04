@@ -37,15 +37,19 @@ class Navbar extends AppComponent {
             type={"password"}
             onChange={(event)=>this.changeInputField("login.password", event)}
             value={password}/>
-          <button className={"default-button"} onClick={()=>this.requestLogin(credential, password)}
+          <button className={"default-button login-button"} onClick={()=>this.requestLogin(credential, password)}
             disabled={pendingLogin || credential.length < 6 || password.length < 6}>
-              Login&nbsp;&gt;&gt;
+              {!pendingLogin ?
+                <span>Login&nbsp;&gt;&gt;</span> :
+                <span><i className={"material-icons md-14 loading-circle"}>data_usage</i></span>}
           </button>
         </div>}
         {(currentApp != "signup" && currentApp != "init") && <div className={"navbar-controller-container"}>
-          <button className={"default-button"} onClick={()=>this.requestLogout()}
+          <button className={"default-button login-button"} onClick={()=>this.requestLogout()}
             disabled={pendingLogout}>
-              &lt;&lt;&nbsp;Logout
+              {!pendingLogout ?
+                <span>&lt;&lt;&nbsp;Logout</span> :
+                <span><i className={"material-icons md-14 loading-circle"}>data_usage</i></span>}
           </button>
         </div>}
       </div>

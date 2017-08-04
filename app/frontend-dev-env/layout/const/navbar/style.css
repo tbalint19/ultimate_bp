@@ -24,4 +24,8 @@
   .navbar-controller-container {
     padding-right: 30px;
   }
+
+  .login-button {
+    width: 120px;
+  }
 }

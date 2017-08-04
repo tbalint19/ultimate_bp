@@ -12,4 +12,6 @@ urlpatterns = [
     url(r'^checkusername$', views.check_username, name='check_username'),
     url(r'^checkemail$', views.check_email, name='check_email'),
 
+    url(r'^details$', views.user_details, name='user_details'),
+
 ]

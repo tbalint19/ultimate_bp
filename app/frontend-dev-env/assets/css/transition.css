@@ -6,3 +6,19 @@
   0% {opacity: 1;}
   100% {opacity: 0.2;}
 }
+
+.loading {
+  text-align: center;
+  padding-top: 80px;
+  opacity: 0.2;
+}
+
+.loading-circle {
+  animation: loadnigCircle 100s forwards;
+  animation-iteration-count: infinite;
+}
+
+@keyframes loadnigCircle {
+  0% {transform: rotateZ(0deg);}
+  100% {transform: rotateZ(36000deg);}
+}

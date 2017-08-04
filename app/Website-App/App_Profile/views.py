@@ -40,3 +40,8 @@ def check_username(request):
 @API.endpoint(EmailCheckRequest)
 def check_email(request):
     return {'email_exists': Profile.objects.filter(user_obj__email=request.email).exists()}
+
+
+@API.endpoint(DetailsRequest)
+def user_details(request):
+    return {'profile': request.user.profile}
