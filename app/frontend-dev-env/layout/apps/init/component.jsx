@@ -10,8 +10,8 @@ class Init extends AppComponent {
   }
   render() {
     return (
-      <div className={"init-component-container"}>
-        <i className="material-icons md-120 loading-init-circle">data_usage</i>
+      <div className={"init-component-container loading"}>
+        <i className="material-icons md-120 loading-circle">data_usage</i>
         <p>Initializing...</p>
       </div>
     )

@@ -112,7 +112,7 @@ export const SignupButton = (props) => (
 const Info = (props) => (
   <span className={"signup-input-" + props.severity}>
     {props.info}
-    <i className={"material-icons md-9 align-down-right" + (props.severity == "loading" ? " loading-signup-circle" : "")}>
+    <i className={"material-icons md-9 align-down-right" + (props.severity == "loading" ? " loading-circle" : "")}>
       {props.severity == "info" && "error_outline"}
       {props.severity == "loading" && "data_usage"}
       {props.severity == "error" && "error"}

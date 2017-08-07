@@ -1,15 +1,5 @@
 .init-component-container {
   text-align: center;
-  padding-top: 110px;
+  padding-top: 80px;
   opacity: 0.2;
-}
-
-.loading-init-circle {
-  animation: initLoadnigCircle 100s forwards;
-  animation-iteration-count: infinite;
-}
-
-@keyframes initLoadnigCircle {
-  0% {transform: rotateZ(0deg);}
-  100% {transform: rotateZ(36000deg);}
 }

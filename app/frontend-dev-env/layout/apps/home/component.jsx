@@ -20,7 +20,7 @@ export default Home
 
 const Loading = (props) => (
   <div className={"loading"}>
-    <i className="material-icons md-120 loading-init-circle">data_usage</i>
+    <i className="material-icons md-120 loading-circle">data_usage</i>
     <p>{props.text}</p>
   </div>
 )
